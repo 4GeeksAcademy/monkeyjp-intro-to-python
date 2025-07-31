@@ -118,3 +118,103 @@ while vidas > 0:
 
 
 print(golpe)
+
+
+
+#/-----------------------------------------------DIA DOS -----------------------------------#
+
+# 🧩 1. Tuplas — Los Power-ups que no cambian
+# 🎮 ¿Qué son?
+# Las tuplas son como los poderes originales de Mario: una vez que los tiene, no cambian. Son listas inmutables.
+
+# 🧪 Sintaxis:
+
+power_up = ("super hongo", "estrella", "flor de fuego")
+
+
+# 🔍 Acceder a elementos:
+
+print(power_up[0])  # "super hongo"
+
+
+# 🛡️ ¿Por qué usar tuplas?
+# Cuando necesitás que los datos nunca cambien.
+
+# Ejemplo: coordenadas fijas de un castillo.
+
+
+def posicion_castillo():
+    return (100, 200)
+
+x, y = posicion_castillo()
+print(f"Castillo en ({x}, {y})")
+
+
+
+# ⚡ 2. Funciones Lambda — Los movimientos rápidos de Mario
+# 🎮 ¿Qué son?
+# Las funciones lambda son como un salto rápido: hacen algo pequeño y rápido, sin definir una función completa.
+
+
+sumar_vidas = lambda vidas, extra: vidas + extra
+print(sumar_vidas(3, 1))  # 4
+
+# 🧠 Se usan mucho con map() y filter().
+
+
+
+
+# 🔁 3. map() y filter() — Efectos especiales sobre listas
+# 🍄 map() aplica un poder a cada ítem:
+
+puntos = [10, 20, 30]
+dobles = list(map(lambda x: x * 2, puntos))  # Mario duplica sus puntos
+print(dobles)  # [20, 40, 60]
+
+# 👀 filter() descarta lo que no sirve:
+
+enemigos = [5, 10, 15, 2]  # Fuerza de enemigos
+fuertes = list(filter(lambda e: e > 5, enemigos))  # Solo los fuertes quedan
+print(fuertes)  # [10, 15]
+
+
+
+# 🎯 4. List Comprehensions — Mario salta más alto con estilo
+
+puntos = [50, 100, 150]
+vidas_extra = [p for p in puntos if p >= 100]
+print(vidas_extra)  # [100, 150]
+
+# 🍌 Más ejemplos:
+
+items = ["moneda", "hongo", "estrella"]
+mensaje = [f"¡Mario encontró un {i}!" for i in items]
+
+
+
+# 👥 5. Recorrer una lista de diccionarios — Aliados de Mario
+
+aliados = [
+    {"nombre": "Toad", "rol": "ayudante"},
+    {"nombre": "Peach", "rol": "princesa"},
+    {"nombre": "Luigi", "rol": "hermano"}
+]
+
+# Extraer nombres
+nombres = [a["nombre"] for a in aliados]
+print(nombres)  # ['Toad', 'Peach', 'Luigi']
+
+# Saludo personalizado
+saludos = [f"{a['nombre']} dice: ¡Vamos Mario!" for a in aliados]
+print(saludos)
+
+
+
+
+# 🤔 6. ¿for-in o map()? — Qué camino tomar
+
+# 🛤️ Situación	                                    ✅ Recomendación
+# Necesitás claridad y pasos extra                	for-in
+# Querés hacer una sola operación	                    map() o comp.
+# Vas a filtrar algo	                                filter()
+# Vas a crear una nueva lista	                        List comprehension
